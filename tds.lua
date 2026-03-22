@@ -2300,7 +2300,7 @@ local function RejoinMatch()
                         count = 1
                     }
                 end
-
+                task.wait(1)
                 return remote:FireServer()
             end)
 
