@@ -2261,7 +2261,7 @@ end
 
 -- // rejoining
 local function RejoinMatch()
-    local remote = ReplicatedStorage:WaitForChild("Network"):WaitForChild("Teleport"):WaitForChild("RE:backToLobby")
+    local remote = game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction") --ReplicatedStorage:WaitForChild("Network"):WaitForChild("Teleport"):WaitForChild("RE:backToLobby")
     local success = false
     local res
 
@@ -2301,7 +2301,7 @@ local function RejoinMatch()
                     }
                 end
                 task.wait(3)
-                return remote:FireServer()
+                return remote:InvokeServer("Multiplayer", "v2:start", payload) -- remote:FireServer()
             end)
 
             if ok and CheckResOk(result) then
