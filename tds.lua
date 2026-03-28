@@ -2924,6 +2924,8 @@ function TDS:Loadout(...)
             local EquipSuccess = false
             repeat
                 local ok = pcall(function()
+                    remote:InvokeServer("Inventory", "Equip", "Skin", towerName, "Default")
+                    task.wait(0.1)
                     remote:InvokeServer("Inventory", "Equip", "tower", TowerName)
                     Logger:Log("Equipped tower: " .. TowerName)
                     task.wait(0.3)
